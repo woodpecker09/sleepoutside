@@ -62,3 +62,8 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 }
+
+export function renderTitle(category, element) {
+  const massage = `Top Products: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
+  element.innerHTML = massage;
+}
