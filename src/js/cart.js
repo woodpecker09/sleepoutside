@@ -18,8 +18,15 @@ function renderCartContents() {
       const itemId = event.target.dataset.id;
       let cancelCartItems = getLocalStorage("so-cart") || [];
       cancelCartItems = cancelCartItems.filter((item) => item.Id !== itemId);
-      localStorage.setItem("so-cart", JSON.stringify(cancelCartItems));
-      renderCartContents();
+      if (cancelCartItems.length !== 0){
+        localStorage.setItem("so-cart", JSON.stringify(cancelCartItems));
+        renderCartContents();
+      }
+      else{
+        document.querySelector(".cart-footer").classList.add("hide");
+        localStorage.setItem("so-cart", JSON.stringify(cancelCartItems));
+        renderCartContents();
+      }
     });
 });
   } else {
