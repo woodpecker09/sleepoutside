@@ -16,9 +16,9 @@ function renderCartContents() {
     document.querySelectorAll(".close_buttom").forEach((button) => {
     button.addEventListener("click", (event) => {
       const itemId = event.target.dataset.id;
-      let cartItems = getLocalStorage("so-cart") || [];
-      cartItems = cartItems.filter((item) => item.Id !== itemId);
-      localStorage.setItem("so-cart", JSON.stringify(cartItems));
+      let cancelCartItems = getLocalStorage("so-cart") || [];
+      cancelCartItems = cancelCartItems.filter((item) => item.Id !== itemId);
+      localStorage.setItem("so-cart", JSON.stringify(cancelCartItems));
       renderCartContents();
     });
 });
